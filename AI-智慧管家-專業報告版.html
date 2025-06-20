@@ -71,411 +71,385 @@
     </style>
 </head>
 <body>
-
-    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+<header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800">賦能台灣樂齡生活</h1>
+            <p class="text-sm text-slate-500">AI 智慧生活管家 App 研發策略報告</p>
+        </div>
+        <div class="hidden md:flex space-x-6 text-slate-600 font-semibold">
+            <a href="#introduction" class="hover:text-blue-600 transition-colors">執行摘要</a>
+            <a href="#challenges" class="hover:text-blue-600 transition-colors">緣起與挑戰</a>
+            <a href="#solution" class="hover:text-blue-600 transition-colors">解決方案</a>
+            <a href="#roadmap" class="hover:text-blue-600 transition-colors">實施藍圖</a>
+        </div>
+    </nav>
+</header>
+<main class="container mx-auto px-6 py-12">
+    <section id="introduction" class="pt-8 pb-16">
+        <h2 class="section-title">I. 執行摘要</h2>
+        <p class="section-subtitle">建構台灣 AI 輔助樂齡生活新願景</p>
+        <div class="mt-8 max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg border border-slate-200 text-slate-600 space-y-4">
+            <p>本報告旨在擘劃一款名為「智慧樂齡管家」之創新應用程式的研發藍圖。其核心願景是透過先進的人工智慧(AI)技術，賦能台灣高齡長者，提升其生活自主性並減輕社會照護負擔。面對台灣社會快速高齡化的趨勢，本 App 的開發具有其策略性意義。</p>
+            <p>我們將以語音互動（特別強調台語支援）為主要操作方式，整合生活服務與醫療照護資源。成功關鍵在於卓越的台語互動體驗、漸進式服務整合、廣泛的策略夥伴聯盟，並在嚴謹的法遵與倫理規範下，以長者為中心進行設計。</p>
+        </div>
+    </section>
+    <section id="challenges" class="py-16">
+        <h2 class="section-title">II. 緣起與挑戰 (Why & What)</h2>
+        <p class="section-subtitle">深入理解台灣高齡族群的需求、挑戰與科技互動現況，是本專案的基石。</p>
+        <div class="mt-12 grid lg:grid-cols-5 gap-12 items-start">
+            <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-lg border border-slate-200">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">高齡社會的宏觀挑戰</h3>
+                <p class="text-slate-600 mb-6">台灣已邁入高齡社會，65歲以上人口比例持續攀升。高齡化伴隨著複雜的健康議題，近九成長者至少罹患一種慢性病，這使得健康管理需求日益複雜。</p>
+                <div class="chart-container">
+                    <canvas id="populationChart"></canvas>
+                </div>
+            </div>
+            <div class="lg:col-span-3">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">長者日常生活的微觀困境</h3>
+                 <div class="flex space-x-1 rounded-t-lg bg-slate-100 p-1">
+                    <button class="challenge-tab flex-1 p-3 font-semibold text-sm rounded-md transition-colors active" data-challenge="food">食膳營養</button>
+                    <button class="challenge-tab flex-1 p-3 font-semibold text-sm rounded-md transition-colors" data-challenge="transport">交通出行</button>
+                    <button class="challenge-tab flex-1 p-3 font-semibold text-sm rounded-md transition-colors" data-challenge="health">醫療照護</button>
+                    <button class="challenge-tab flex-1 p-3 font-semibold text-sm rounded-md transition-colors" data-challenge="digital">數位落差</button>
+                </div>
+                <div class="bg-white p-6 rounded-b-lg shadow-lg border border-t-0 border-slate-200 min-h-[320px]">
+                    <div id="challenge-content-food" class="challenge-content-panel space-y-4">
+                        <div>
+                            <h4 class="font-bold text-blue-700">特定需求</h4>
+                            <ul class="list-disc pl-5 text-slate-600">
+                                <li>對營養均衡、易咀嚼的餐食需求殷切，尤其針對糖尿病、高血壓等慢性病患者。</li>
+                                <li>需要方便取得餐食的途徑，如外送服務與健康飲食資訊。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-red-700">面臨挑戰</h4>
+                            <ul class="list-disc pl-5 text-slate-600">
+                                <li>行動不便或體力衰退，難以自行購買食材或烹飪。</li>
+                                <li>對老年營養知識普遍缺乏，且特殊餐食價格較高。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="challenge-content-transport" class="challenge-content-panel hidden space-y-4">
+                        <div>
+                            <h4 class="font-bold text-blue-700">特定需求</h4>
+                            <ul class="list-disc pl-5 text-slate-600">
+                                <li>需要便利、可負擔且無障礙的交通方式，以滿足就醫、購物、社交等外出需求。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-red-700">面臨挑戰</h4>
+                            <ul class="list-disc pl-5 text-slate-600">
+                                <li>行動不便、不熟悉大眾運輸系統是主要障礙。</li>
+                                <li>偏鄉地區大眾運輸資源匱乏，加劇外出困難。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="challenge-content-health" class="challenge-content-panel hidden space-y-4">
+                        <div>
+                            <h4 class="font-bold text-blue-700">特定需求</h4>
+                            <ul class="list-disc pl-5 text-slate-600">
+                                <li>普遍有多重慢性病史，對用藥管理、預約門診及緊急醫療協助的需求極高。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-red-700">面臨挑戰</h4>
+                            <ul class="list-disc pl-5 text-slate-600">
+                                <li>多重用藥管理複雜，容易忘記或混淆藥物。</li>
+                                <li>網路掛號流程繁瑣，對不熟悉網路操作的長者是一大門檻。</li>
+                                <li>偏鄉醫療資源相對匱乏，就醫不便。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="challenge-content-digital" class="challenge-content-panel hidden space-y-4">
+                        <div>
+                            <h4 class="font-bold text-blue-700">科技態度</h4>
+                            <ul class="list-disc pl-5 text-slate-600">
+                                <li>智慧型手機使用率雖增，但整體數位落差依然存在。</li>
+                                <li>超過五成的長者認為銀髮科技能幫助他們安享晚年，顯示對科技輔助的正面態度。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-red-700">面臨挑戰</h4>
+                            <ul class="list-disc pl-5 text-slate-600">
+                                <li>許多長者對學習新科技仍感吃力或缺乏信心。</li>
+                                <li>以台語為主要溝通語言的長者，若 AI 互動體驗不佳（如辨識不準），使用意願將大幅降低。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="solution" class="py-16 bg-white">
+        <h2 class="section-title">III. 解決方案與架構 (How)</h2>
+        <p class="section-subtitle">本 App 的架構以 AI 為核心，旨在為長者打造一個全方位的生活助手，扮演串連起長者與複雜數位服務的「數位橋樑」。</p>
+        <div class="mt-12 grid md:grid-cols-3 gap-8">
+            <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+                <h3 class="text-xl font-bold text-slate-800">1. 卓越台語語音互動</h3>
+                <p class="mt-2 text-slate-600">流暢且高準確度的台語支援是成功的基石。我們將投入資源開發高品質的台語語音辨識(ASR)、自然語言理解(NLU)與語音合成(TTS)技術，克服口音、腔調與低資源語言的挑戰，確保長者能以最熟悉的語言自然操作。</p>
+            </div>
+            <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+                <h3 class="text-xl font-bold text-slate-800">2. 智慧型 AI 代理人</h3>
+                <p class="mt-2 text-slate-600">AI 代理人不僅提供資訊，更能「落實生活協助」。它能依據語音指令，主動協助完成任務，如訂餐、叫車與用藥提醒，並根據使用者偏好與健康狀況提供個人化推薦與主動關懷。</p>
+            </div>
+            <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+                <h3 class="text-xl font-bold text-slate-800">3. 互聯互通的服務生態系</h3>
+                <p class="mt-2 text-slate-600">核心競爭力在於有效整合分散的服務資源。我們將建構一個「智慧型抽象層」，串接公私部門的 API（如 MaaS 交通平台、長照2.0資源），為使用者提供無縫的單一入口體驗。</p>
+            </div>
+        </div>
+        <div class="mt-16 grid lg:grid-cols-2 gap-8">
             <div>
-                <h1 class="text-xl font-bold text-slate-800">賦能台灣樂齡生活</h1>
-                <p class="text-sm text-slate-500">AI 智慧生活管家 App 研發策略報告</p>
+                <h3 class="text-2xl font-bold text-slate-800 text-center mb-3">AI 應用場景模擬器</h3>
+                <p class="text-center text-slate-600 mb-6 max-w-md mx-auto">體驗 AI 管家如何理解長者的台語指令並提供協助。</p>
+                <div class="mx-auto bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                     <label for="gemini-scenario" class="block text-sm font-medium text-slate-700">請選擇一個模擬場景：</label>
+                     <select id="gemini-scenario" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                         <option value="taxi">預約無障礙計程車</option>
+                         <option value="meal">訂購糖尿病友善的午餐</option>
+                         <option value="reminder">設定複雜的用藥提醒</option>
+                         <option value="activity">查詢附近的社區活動</option>
+                     </select>
+                     <button id="gemini-scenario-btn" class="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition flex items-center justify-center space-x-2">
+                        <span id="gemini-scenario-btn-text">產生模擬對話</span>
+                        <div id="gemini-scenario-loader" class="gemini-spinner hidden"></div>
+                     </button>
+                     <div class="mt-6 p-4 bg-slate-100 rounded-lg min-h-[300px] whitespace-pre-wrap text-slate-700 font-mono text-sm leading-relaxed">
+                        <p id="gemini-scenario-output" class="text-slate-500">模擬的對話內容將會顯示在這裡...</p>
+                     </div>
+                </div>
             </div>
-            <div class="hidden md:flex space-x-6 text-slate-600 font-semibold">
-                <a href="#introduction" class="hover:text-blue-600 transition-colors">執行摘要</a>
-                <a href="#challenges" class="hover:text-blue-600 transition-colors">緣起與挑戰</a>
-                <a href="#solution" class="hover:text-blue-600 transition-colors">解決方案</a>
-                <a href="#roadmap" class="hover:text-blue-600 transition-colors">實施藍圖</a>
-            </div>
-        </nav>
-    </header>
-
-    <main class="container mx-auto px-6 py-12">
-
-        <section id="introduction" class="pt-8 pb-16">
-            <h2 class="section-title">I. 執行摘要</h2>
-            <p class="section-subtitle">建構台灣 AI 輔助樂齡生活新願景</p>
-            <div class="mt-8 max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg border border-slate-200 text-slate-600 space-y-4">
-                <p>本報告旨在擘劃一款名為「智慧樂齡管家」之創新應用程式的研發藍圖。其核心願景是透過先進的人工智慧(AI)技術，賦能台灣高齡長者，提升其生活自主性並減輕社會照護負擔。面對台灣社會快速高齡化的趨勢，本 App 的開發具有其策略性意義。</p>
-                <p>我們將以語音互動（特別強調台語支援）為主要操作方式，整合生活服務與醫療照護資源。成功關鍵在於卓越的台語互動體驗、漸進式服務整合、廣泛的策略夥伴聯盟，並在嚴謹的法遵與倫理規範下，以長者為中心進行設計。</p>
-            </div>
-        </section>
-
-        <section id="challenges" class="py-16">
-            <h2 class="section-title">II. 緣起與挑戰 (Why & What)</h2>
-            <p class="section-subtitle">深入理解台灣高齡族群的需求、挑戰與科技互動現況，是本專案的基石。</p>
-            <div class="mt-12 grid lg:grid-cols-5 gap-12 items-start">
-                <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-lg border border-slate-200">
-                    <h3 class="text-xl font-bold text-slate-800 mb-4">高齡社會的宏觀挑戰</h3>
-                    <p class="text-slate-600 mb-6">台灣已邁入高齡社會，65歲以上人口比例持續攀升。高齡化伴隨著複雜的健康議題，近九成長者至少罹患一種慢性病，這使得健康管理需求日益複雜。</p>
-                    <div class="chart-container">
-                        <canvas id="populationChart"></canvas>
+             <div>
+                <h3 class="text-2xl font-bold text-slate-800 text-center mb-3">✨ AI 策略問答</h3>
+                <p class="text-center text-slate-600 mb-6 max-w-md mx-auto">針對本專案的策略、技術或市場，直接向 AI 分析師提問。</p>
+                 <div class="mx-auto bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                    <label for="gemini-qa-input" class="block text-sm font-medium text-slate-700">您的問題：</label>
+                    <textarea id="gemini-qa-input" rows="3" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" placeholder="例如：這個專案最大的技術壁壘是什麼？"></textarea>
+                    <div class="mt-2 text-xs text-slate-500 space-x-1">
+                        <span>或嘗試：</span>
+                        <button class="preset-q-btn hover:underline">主要差異化優勢？</button>
+                        <button class="preset-q-btn hover:underline">初期目標用戶？</button>
                     </div>
-                </div>
-                <div class="lg:col-span-3">
-                    <h3 class="text-xl font-bold text-slate-800 mb-4">長者日常生活的微觀困境</h3>
-                     <div class="flex space-x-1 rounded-t-lg bg-slate-100 p-1">
-                        <button class="challenge-tab flex-1 p-3 font-semibold text-sm rounded-md transition-colors active" data-challenge="food">食膳營養</button>
-                        <button class="challenge-tab flex-1 p-3 font-semibold text-sm rounded-md transition-colors" data-challenge="transport">交通出行</button>
-                        <button class="challenge-tab flex-1 p-3 font-semibold text-sm rounded-md transition-colors" data-challenge="health">醫療照護</button>
-                        <button class="challenge-tab flex-1 p-3 font-semibold text-sm rounded-md transition-colors" data-challenge="digital">數位落差</button>
-                    </div>
-                    <div class="bg-white p-6 rounded-b-lg shadow-lg border border-t-0 border-slate-200 min-h-[320px]">
-                        <div id="challenge-content-food" class="challenge-content-panel space-y-4">
-                            <div>
-                                <h4 class="font-bold text-blue-700">特定需求</h4>
-                                <ul class="list-disc pl-5 text-slate-600">
-                                    <li>對營養均衡、易咀嚼的餐食需求殷切，尤其針對糖尿病、高血壓等慢性病患者。</li>
-                                    <li>需要方便取得餐食的途徑，如外送服務與健康飲食資訊。</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-red-700">面臨挑戰</h4>
-                                <ul class="list-disc pl-5 text-slate-600">
-                                    <li>行動不便或體力衰退，難以自行購買食材或烹飪。</li>
-                                    <li>對老年營養知識普遍缺乏，且特殊餐食價格較高。</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div id="challenge-content-transport" class="challenge-content-panel hidden space-y-4">
-                            <div>
-                                <h4 class="font-bold text-blue-700">特定需求</h4>
-                                <ul class="list-disc pl-5 text-slate-600">
-                                    <li>需要便利、可負擔且無障礙的交通方式，以滿足就醫、購物、社交等外出需求。</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-red-700">面臨挑戰</h4>
-                                <ul class="list-disc pl-5 text-slate-600">
-                                    <li>行動不便、不熟悉大眾運輸系統是主要障礙。</li>
-                                    <li>偏鄉地區大眾運輸資源匱乏，加劇外出困難。</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div id="challenge-content-health" class="challenge-content-panel hidden space-y-4">
-                            <div>
-                                <h4 class="font-bold text-blue-700">特定需求</h4>
-                                <ul class="list-disc pl-5 text-slate-600">
-                                    <li>普遍有多重慢性病史，對用藥管理、預約門診及緊急醫療協助的需求極高。</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-red-700">面臨挑戰</h4>
-                                <ul class="list-disc pl-5 text-slate-600">
-                                    <li>多重用藥管理複雜，容易忘記或混淆藥物。</li>
-                                    <li>網路掛號流程繁瑣，對不熟悉網路操作的長者是一大門檻。</li>
-                                    <li>偏鄉醫療資源相對匱乏，就醫不便。</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div id="challenge-content-digital" class="challenge-content-panel hidden space-y-4">
-                            <div>
-                                <h4 class="font-bold text-blue-700">科技態度</h4>
-                                <ul class="list-disc pl-5 text-slate-600">
-                                    <li>智慧型手機使用率雖增，但整體數位落差依然存在。</li>
-                                    <li>超過五成的長者認為銀髮科技能幫助他們安享晚年，顯示對科技輔助的正面態度。</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-red-700">面臨挑戰</h4>
-                                <ul class="list-disc pl-5 text-slate-600">
-                                    <li>許多長者對學習新科技仍感吃力或缺乏信心。</li>
-                                    <li>以台語為主要溝通語言的長者，若 AI 互動體驗不佳（如辨識不準），使用意願將大幅降低。</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                     <button id="gemini-qa-btn" class="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition flex items-center justify-center space-x-2">
+                        <span id="gemini-qa-btn-text">送出問題</span>
+                        <div id="gemini-qa-loader" class="gemini-spinner hidden"></div>
+                     </button>
+                     <div class="mt-6 p-4 bg-slate-100 rounded-lg min-h-[300px] whitespace-pre-wrap text-slate-700 text-sm leading-relaxed">
+                        <p id="gemini-qa-output" class="text-slate-500">AI 分析師的回答將會顯示在這裡...</p>
+                     </div>
                 </div>
             </div>
-        </section>
-
-        <section id="solution" class="py-16 bg-white">
-            <h2 class="section-title">III. 解決方案與架構 (How)</h2>
-            <p class="section-subtitle">本 App 的架構以 AI 為核心，旨在為長者打造一個全方位的生活助手，扮演串連起長者與複雜數位服務的「數位橋樑」。</p>
-            <div class="mt-12 grid md:grid-cols-3 gap-8">
-                <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
-                    <h3 class="text-xl font-bold text-slate-800">1. 卓越台語語音互動</h3>
-                    <p class="mt-2 text-slate-600">流暢且高準確度的台語支援是成功的基石。我們將投入資源開發高品質的台語語音辨識(ASR)、自然語言理解(NLU)與語音合成(TTS)技術，克服口音、腔調與低資源語言的挑戰，確保長者能以最熟悉的語言自然操作。</p>
-                </div>
-                <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
-                    <h3 class="text-xl font-bold text-slate-800">2. 智慧型 AI 代理人</h3>
-                    <p class="mt-2 text-slate-600">AI 代理人不僅提供資訊，更能「落實生活協助」。它能依據語音指令，主動協助完成任務，如訂餐、叫車與用藥提醒，並根據使用者偏好與健康狀況提供個人化推薦與主動關懷。</p>
-                </div>
-                <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
-                    <h3 class="text-xl font-bold text-slate-800">3. 互聯互通的服務生態系</h3>
-                    <p class="mt-2 text-slate-600">核心競爭力在於有效整合分散的服務資源。我們將建構一個「智慧型抽象層」，串接公私部門的 API（如 MaaS 交通平台、長照2.0資源），為使用者提供無縫的單一入口體驗。</p>
-                </div>
-            </div>
-
-            <div class="mt-16 grid lg:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-2xl font-bold text-slate-800 text-center mb-3">AI 應用場景模擬器</h3>
-                    <p class="text-center text-slate-600 mb-6 max-w-md mx-auto">體驗 AI 管家如何理解長者的台語指令並提供協助。</p>
-                    <div class="mx-auto bg-white p-6 rounded-xl shadow-lg border border-slate-200">
-                         <label for="gemini-scenario" class="block text-sm font-medium text-slate-700">請選擇一個模擬場景：</label>
-                         <select id="gemini-scenario" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                             <option value="taxi">預約無障礙計程車</option>
-                             <option value="meal">訂購糖尿病友善的午餐</option>
-                             <option value="reminder">設定複雜的用藥提醒</option>
-                             <option value="activity">查詢附近的社區活動</option>
-                         </select>
-                         <button id="gemini-scenario-btn" class="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition flex items-center justify-center space-x-2">
-                            <span id="gemini-scenario-btn-text">產生模擬對話</span>
-                            <div id="gemini-scenario-loader" class="gemini-spinner hidden"></div>
-                         </button>
-                         <div class="mt-6 p-4 bg-slate-100 rounded-lg min-h-[300px] whitespace-pre-wrap text-slate-700 font-mono text-sm leading-relaxed">
-                            <p id="gemini-scenario-output" class="text-slate-500">模擬的對話內容將會顯示在這裡...</p>
-                         </div>
-                    </div>
-                </div>
-                 <div>
-                    <h3 class="text-2xl font-bold text-slate-800 text-center mb-3">✨ AI 策略問答</h3>
-                    <p class="text-center text-slate-600 mb-6 max-w-md mx-auto">針對本專案的策略、技術或市場，直接向 AI 分析師提問。</p>
-                     <div class="mx-auto bg-white p-6 rounded-xl shadow-lg border border-slate-200">
-                        <label for="gemini-qa-input" class="block text-sm font-medium text-slate-700">您的問題：</label>
-                        <textarea id="gemini-qa-input" rows="3" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" placeholder="例如：這個專案最大的技術壁壘是什麼？"></textarea>
-                        <div class="mt-2 text-xs text-slate-500 space-x-1">
-                            <span>或嘗試：</span>
-                            <button class="preset-q-btn hover:underline">主要差異化優勢？</button>
-                            <button class="preset-q-btn hover:underline">初期目標用戶？</button>
-                        </div>
-                         <button id="gemini-qa-btn" class="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition flex items-center justify-center space-x-2">
-                            <span id="gemini-qa-btn-text">送出問題</span>
-                            <div id="gemini-qa-loader" class="gemini-spinner hidden"></div>
-                         </button>
-                         <div class="mt-6 p-4 bg-slate-100 rounded-lg min-h-[300px] whitespace-pre-wrap text-slate-700 text-sm leading-relaxed">
-                            <p id="gemini-qa-output" class="text-slate-500">AI 分析師的回答將會顯示在這裡...</p>
-                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="roadmap" class="py-16">
-            <h2 class="section-title">IV. 實施藍圖與合作模式</h2>
-            <p class="section-subtitle">我們規劃了清晰的四階段實施路徑圖，並將積極與各方利害關係人合作，建構一個永續發展的樂齡生態系統。</p>
-            <div id="timeline-container" class="mt-12 max-w-4xl mx-auto">
-                </div>
-        </section>
-
-    </main>
-
-    <footer class="bg-slate-800 text-slate-300 mt-16">
-        <div class="container mx-auto px-6 py-8 text-center">
-             <h3 class="text-xl font-bold text-white">聯繫我們</h3>
-             <p class="mt-2 max-w-lg mx-auto">我們相信科技能為高齡社會帶來正向改變。若您對本專案的願景有所共鳴，誠摯邀請您與我們聯繫，共同探討合作的可能性。</p>
-             <div class="mt-4 text-white">
-                <p>專案負責人：呂學勇 (Steve Lu)</p>
-                <p>電子郵件：stevelu1962.sl@gmail.com</p>
-             </div>
         </div>
-        <div class="bg-slate-900 text-slate-400 py-4 text-center text-sm">
-            <p>&copy; 2025 AI 智慧生活管家 App 專案</p>
-        </div>
-    </footer>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const populationData = {
-            labels: ['2020', '2025 (預測)', '2030 (預測)', '2035 (預測)'],
-            datasets: [{
-                label: '65歲以上人口 (萬人)',
-                data: [367, 480, 595, 710],
-                backgroundColor: 'rgba(59, 130, 246, 0.7)',
-                borderColor: 'rgba(59, 130, 246, 1)',
-                borderWidth: 1,
-                borderRadius: 4,
-            }]
-        };
-
-        const populationChartCtx = document.getElementById('populationChart').getContext('2d');
-        new Chart(populationChartCtx, {
-            type: 'bar',
-            data: populationData,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return ' ' + context.parsed.y + ' 萬人';
-                            }
+    </section>
+    <section id="roadmap" class="py-16">
+        <h2 class="section-title">IV. 實施藍圖與合作模式</h2>
+        <p class="section-subtitle">我們規劃了清晰的四階段實施路徑圖，並將積極與各方利害關係人合作，建構一個永續發展的樂齡生態系統。</p>
+        <div id="timeline-container" class="mt-12 max-w-4xl mx-auto">
+            </div>
+    </section>
+</main>
+<footer class="bg-slate-800 text-slate-300 mt-16">
+    <div class="container mx-auto px-6 py-8 text-center">
+         <h3 class="text-xl font-bold text-white">聯繫我們</h3>
+         <p class="mt-2 max-w-lg mx-auto">我們相信科技能為高齡社會帶來正向改變。若您對本專案的願景有所共鳴，誠摯邀請您與我們聯繫，共同探討合作的可能性。</p>
+         <div class="mt-4 text-white">
+            <p>專案負責人：呂學勇 (Steve Lu)</p>
+            <p>電子郵件：stevelu1962.sl@gmail.com</p>
+         </div>
+    </div>
+    <div class="bg-slate-900 text-slate-400 py-4 text-center text-sm">
+        <p>&copy; 2025 AI 智慧生活管家 App 專案</p>
+    </div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const populationData = {
+        labels: ['2020', '2025 (預測)', '2030 (預測)', '2035 (預測)'],
+        datasets: [{
+            label: '65歲以上人口 (萬人)',
+            data: [367, 480, 595, 710],
+            backgroundColor: 'rgba(59, 130, 246, 0.7)',
+            borderColor: 'rgba(59, 130, 246, 1)',
+            borderWidth: 1,
+            borderRadius: 4,
+        }]
+    };
+    const populationChartCtx = document.getElementById('populationChart').getContext('2d');
+    new Chart(populationChartCtx, {
+        type: 'bar',
+        data: populationData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return ' ' + context.parsed.y + ' 萬人';
                         }
                     }
-                },
-                scales: { y: { beginAtZero: false, title: { display: true, text: '人口數 (萬)' } } }
-            }
-        });
-
-        const challengeTabs = document.querySelectorAll('.challenge-tab');
-        challengeTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                challengeTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                document.querySelectorAll('.challenge-content-panel').forEach(p => p.classList.add('hidden'));
-                document.getElementById(`challenge-content-${tab.dataset.challenge}`).classList.remove('hidden');
-            });
-        });
-
-        const timelineData = [
-            {
-                phase: "第一階段",
-                title: "核心可行性產品 (6-9個月)",
-                content: "建置穩定高準確度的台語/國語語音介面。整合基礎資訊提供（健康、安全）、緊急撥號及用藥提醒功能。"
-            },
-            {
-                phase: "第二階段",
-                title: "高影響力服務整合 (9-15個月)",
-                content: "整合1-2項長者高度需求的服務，例如與「銀色大門」合作送餐，或串接無障礙計程車隊的預約系統。AI 代理人將能處理任務執行。"
-            },
-            {
-                phase: "第三階段",
-                title: "擴展服務生態系與AI個人化 (15-24個月)",
-                content: "整合更多元服務，如醫療門診預約、居家照護轉介。強化基於「健康存摺」資料的個人化推薦功能（飲食、運動建議）。"
-            },
-            {
-                phase: "第四階段",
-                title: "進階AI應用與社群功能 (24個月以上)",
-                content: "發展更進階的AI陪伴功能，研究整合智慧居家安全設備（如跌倒偵測器）。開發社群互動功能，提供預測性的生活輔助。"
-            }
-        ];
-
-        const timelineContainer = document.getElementById('timeline-container');
-        timelineData.forEach((item, index) => {
-            const div = document.createElement('div');
-            div.className = `timeline-item relative pl-12 pb-12 ${index === 0 ? 'active' : ''}`;
-            div.innerHTML = `
-                <div class="timeline-dot"></div>
-                <div class="p-4 bg-white rounded-lg border-2 ${index === 0 ? 'border-blue-500' : 'border-slate-200'} shadow-md">
-                    <p class="text-sm font-semibold text-blue-600">${item.phase}</p>
-                    <h4 class="text-lg font-bold text-slate-800">${item.title}</h4>
-                    <p class="mt-1 text-slate-600">${item.content}</p>
-                </div>
-            `;
-            timelineContainer.appendChild(div);
-        });
-        
-        const scenarioBtn = document.getElementById('gemini-scenario-btn');
-        const scenarioBtnText = document.getElementById('gemini-scenario-btn-text');
-        const scenarioLoader = document.getElementById('gemini-scenario-loader');
-        const scenarioOutputDiv = document.getElementById('gemini-scenario-output');
-        const scenarioSelect = document.getElementById('gemini-scenario');
-
-        const scenarioPrompts = {
-            taxi: `你是一位專業、親切且精通台語的「AI智慧生活管家」。一位膝蓋不方便的阿公想要預約一台輪椅可以上的計程車，明天早上9點要去台大醫院。請生成一段阿公與你的模擬對話。阿公的台語可能很口語化，你的回應要非常耐心、清晰，並在最後確認所有預約細節。`,
-            meal: `你是一位專業、親切且精通台語的「AI智慧生活管家」。一位有糖尿病的阿嬤想要訂購明天的午餐，她不清楚可以吃什麼。請生成一段你與阿嬤的模擬對話。你需要先關心她的狀況，然後推薦幾款適合的低GI便當（例如：糙米飯、多蔬菜），並引導她完成訂購，最後確認訂單與地址。`,
-            reminder: `你是一位專業、親切且精通台語的「AI智慧生活管家」。一位長輩需要設定一個比較複雜的用藥提醒：「高血壓的藥是每天早上8點跟晚上8點吃，血糖的藥是三餐飯後30分鐘吃」。請生成一段你與這位長輩的模擬對話，你需要重複並確認這兩個複雜的提醒設定都正確無誤。`,
-            activity: `你是一位專業、親切且精通台語的「AI智慧生活管家」。一位最近覺得有點無聊的阿嬤，想知道家裡附近（假設在萬華區）有沒有什麼老人可以參加的活動。請生成一段你與阿嬤的模擬對話。你需要推薦2個不同類型的活動（例如：一個是社區據點的歌唱班，一個是健康講座），並說明活動時間地點，詢問她對哪個有興趣。`
-        };
-
-        scenarioBtn.addEventListener('click', async () => {
-            const scenario = scenarioSelect.value;
-            const prompt = scenarioPrompts[scenario];
-            
-            scenarioBtnText.textContent = 'AI 生成中...';
-            scenarioLoader.classList.remove('hidden');
-            scenarioBtn.disabled = true;
-            scenarioOutputDiv.innerHTML = '<p class="text-slate-400">正在聯繫 AI 生活管家，請稍候...</p>';
-
-            try {
-                const text = await callGemini(prompt);
-                scenarioOutputDiv.innerText = text;
-            } catch (error) {
-                console.error("Gemini API Error:", error);
-                scenarioOutputDiv.innerHTML = '<p class="text-red-500">抱歉，AI 服務模擬器暫時無法連線，請稍後再試。此功能旨在展示本 App 的核心 AI 對話技術。';
-            } finally {
-                scenarioBtnText.textContent = '產生模擬對話';
-                scenarioLoader.classList.add('hidden');
-                scenarioBtn.disabled = false;
-            }
-        });
-
-        const qaBtn = document.getElementById('gemini-qa-btn');
-        const qaBtnText = document.getElementById('gemini-qa-btn-text');
-        const qaLoader = document.getElementById('gemini-qa-loader');
-        const qaOutputDiv = document.getElementById('gemini-qa-output');
-        const qaInput = document.getElementById('gemini-qa-input');
-        const presetQBtns = document.querySelectorAll('.preset-q-btn');
-
-        const qaContext = `
-            專案名稱：「智慧樂齡管家」App
-            核心願景：透過AI技術賦能台灣高齡長者，提升生活自主性。
-            市場背景(Why)：台灣進入超高齡社會，長照需求壓力大，銀髮科技市場潛力巨大。
-            使用者痛點(What)：長者面臨食、行、醫、住、孤獨感及數位落差等挑戰，尤其現有服務 fragmented，且缺乏良好的台語語音支援。
-            解決方案(How)：
-            1. 卓越台語語音互動：核心技術壁壘，需開發高準確度的台語ASR/NLU/TTS。
-            2. 智慧型AI代理人：不只提供資訊，更能「落實」任務（訂餐、叫車），提供個人化推薦與主動關懷。
-            3. 互聯互通的生態系：透過API整合長照2.0、交通、餐飲、醫療等公私部門服務。
-            主要差異化優勢：以「台語優先」的語音互動為入口，整合「碎片化服務」並提供「主動式任務執行」，而不僅是被動的資訊提供者。
-            初期目標用戶：部分失能但仍具生活自理能力的長者，特別是以台語為主要溝通語言的族群。
-        `;
-
-        presetQBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (btn.innerText.includes('差異化')) {
-                    qaInput.value = "相較於市場上其他健康App，這個App的主要差異化優勢是什麼？";
-                } else if (btn.innerText.includes('目標用戶')) {
-                    qaInput.value = "這個App初期的主要目標用戶是誰？";
                 }
-            });
-        });
-
-        qaBtn.addEventListener('click', async () => {
-            const userQuestion = qaInput.value.trim();
-            if (!userQuestion) {
-                qaOutputDiv.innerHTML = '<p class="text-red-500">請輸入您的問題。</p>';
-                return;
-            }
-            
-            const prompt = `你是一位頂尖的商業策略分析師。請根據以下的專案摘要，專業且精要地回答使用者的提問。請以繁體中文回答。
-
-            --- 專案摘要 ---
-            ${qaContext}
-            ---
-            
-            使用者的提問：「${userQuestion}」`;
-
-            qaBtnText.textContent = 'AI 分析中...';
-            qaLoader.classList.remove('hidden');
-            qaBtn.disabled = true;
-            qaOutputDiv.innerHTML = '<p class="text-slate-400">正在諮詢 AI 策略分析師，請稍候...</p>';
-
-            try {
-                const text = await callGemini(prompt);
-                qaOutputDiv.innerText = text;
-            } catch (error) {
-                console.error("Gemini API Error:", error);
-                qaOutputDiv.innerHTML = '<p class="text-red-500">抱歉，AI 策略分析師暫時無法連線，請稍後再試。</p>';
-            } finally {
-                qaBtnText.textContent = '送出問題';
-                qaLoader.classList.add('hidden');
-                qaBtn.disabled = false;
-            }
-        });
-
-        async function callGemini(prompt) {
-            let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
-            const payload = { contents: chatHistory };
-            const apiKey = "";
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            
-            if (!response.ok) { throw new Error(`API request failed with status ${response.status}`); }
-
-            const result = await response.json();
-            
-            if (result.candidates && result.candidates.length > 0 && result.candidates[0].content && result.candidates[0].content.parts[0].text) {
-                return result.candidates[0].content.parts[0].text;
-            } else {
-                throw new Error('Invalid API response format');
-            }
+            },
+            scales: { y: { beginAtZero: false, title: { display: true, text: '人口數 (萬)' } } }
         }
     });
-    </script>
+    const challengeTabs = document.querySelectorAll('.challenge-tab');
+    challengeTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            challengeTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            document.querySelectorAll('.challenge-content-panel').forEach(p => p.classList.add('hidden'));
+            document.getElementById(`challenge-content-${tab.dataset.challenge}`).classList.remove('hidden');
+        });
+    });
+    const timelineData = [
+        {
+            phase: "第一階段",
+            title: "核心可行性產品 (6-9個月)",
+            content: "建置穩定高準確度的台語/國語語音介面。整合基礎資訊提供（健康、安全）、緊急撥號及用藥提醒功能。"
+        },
+        {
+            phase: "第二階段",
+            title: "高影響力服務整合 (9-15個月)",
+            content: "整合1-2項長者高度需求的服務，例如與「銀色大門」合作送餐，或串接無障礙計程車隊的預約系統。AI 代理人將能處理任務執行。"
+        },
+        {
+            phase: "第三階段",
+            title: "擴展服務生態系與AI個人化 (15-24個月)",
+            content: "整合更多元服務，如醫療門診預約、居家照護轉介。強化基於「健康存摺」資料的個人化推薦功能（飲食、運動建議）。"
+        },
+        {
+            phase: "第四階段",
+            title: "進階AI應用與社群功能 (24個月以上)",
+            content: "發展更進階的AI陪伴功能，研究整合智慧居家安全設備（如跌倒偵測器）。開發社群互動功能，提供預測性的生活輔助。"
+        }
+    ];
+    const timelineContainer = document.getElementById('timeline-container');
+    timelineData.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = `timeline-item relative pl-12 pb-12 ${index === 0 ? 'active' : ''}`;
+        div.innerHTML = `
+            <div class="timeline-dot"></div>
+            <div class="p-4 bg-white rounded-lg border-2 ${index === 0 ? 'border-blue-500' : 'border-slate-200'} shadow-md">
+                <p class="text-sm font-semibold text-blue-600">${item.phase}</p>
+                <h4 class="text-lg font-bold text-slate-800">${item.title}</h4>
+                <p class="mt-1 text-slate-600">${item.content}</p>
+            </div>
+        `;
+        timelineContainer.appendChild(div);
+    });
+    
+    const scenarioBtn = document.getElementById('gemini-scenario-btn');
+    const scenarioBtnText = document.getElementById('gemini-scenario-btn-text');
+    const scenarioLoader = document.getElementById('gemini-scenario-loader');
+    const scenarioOutputDiv = document.getElementById('gemini-scenario-output');
+    const scenarioSelect = document.getElementById('gemini-scenario');
+    const scenarioPrompts = {
+        taxi: `你是一位專業、親切且精通台語的「AI智慧生活管家」。一位膝蓋不方便的阿公想要預約一台輪椅可以上的計程車，明天早上9點要去台大醫院。請生成一段阿公與你的模擬對話。阿公的台語可能很口語化，你的回應要非常耐心、清晰，並在最後確認所有預約細節。`,
+        meal: `你是一位專業、親切且精通台語的「AI智慧生活管家」。一位有糖尿病的阿嬤想要訂購明天的午餐，她不清楚可以吃什麼。請生成一段你與阿嬤的模擬對話。你需要先關心她的狀況，然後推薦幾款適合的低GI便當（例如：糙米飯、多蔬菜），並引導她完成訂購，最後確認訂單與地址。`,
+        reminder: `你是一位專業、親切且精通台語的「AI智慧生活管家」。一位長輩需要設定一個比較複雜的用藥提醒：「高血壓的藥是每天早上8點跟晚上8點吃，血糖的藥是三餐飯後30分鐘吃」。請生成一段你與這位長輩的模擬對話，你需要重複並確認這兩個複雜的提醒設定都正確無誤。`,
+        activity: `你是一位專業、親切且精通台語的「AI智慧生活管家」。一位最近覺得有點無聊的阿嬤，想知道家裡附近（假設在萬華區）有沒有什麼老人可以參加的活動。請生成一段你與阿嬤的模擬對話。你需要推薦2個不同類型的活動（例如：一個是社區據點的歌唱班，一個是健康講座），並說明活動時間地點，詢問她對哪個有興趣。`
+    };
+    scenarioBtn.addEventListener('click', async () => {
+        const scenario = scenarioSelect.value;
+        const prompt = scenarioPrompts[scenario];
+        
+        scenarioBtnText.textContent = 'AI 生成中...';
+        scenarioLoader.classList.remove('hidden');
+        scenarioBtn.disabled = true;
+        scenarioOutputDiv.innerHTML = '<p class="text-slate-400">正在聯繫 AI 生活管家，請稍候...</p>';
+        try {
+            const text = await callGemini(prompt);
+            scenarioOutputDiv.innerText = text;
+        } catch (error) {
+            console.error("Gemini API Error:", error);
+            scenarioOutputDiv.innerHTML = '<p class="text-red-500">抱歉，AI 服務模擬器暫時無法連線，請稍後再試。此功能旨在展示本 App 的核心 AI 對話技術。';
+        } finally {
+            scenarioBtnText.textContent = '產生模擬對話';
+            scenarioLoader.classList.add('hidden');
+            scenarioBtn.disabled = false;
+        }
+    });
+    const qaBtn = document.getElementById('gemini-qa-btn');
+    const qaBtnText = document.getElementById('gemini-qa-btn-text');
+    const qaLoader = document.getElementById('gemini-qa-loader');
+    const qaOutputDiv = document.getElementById('gemini-qa-output');
+    const qaInput = document.getElementById('gemini-qa-input');
+    const presetQBtns = document.querySelectorAll('.preset-q-btn');
+    const qaContext = `
+        專案名稱：「智慧樂齡管家」App
+        核心願景：透過AI技術賦能台灣高齡長者，提升生活自主性。
+        市場背景(Why)：台灣進入超高齡社會，長照需求壓力大，銀髮科技市場潛力巨大。
+        使用者痛點(What)：長者面臨食、行、醫、住、孤獨感及數位落差等挑戰，尤其現有服務 fragmented，且缺乏良好的台語語音支援。
+        解決方案(How)：
+        1. 卓越台語語音互動：核心技術壁壘，需開發高準確度的台語ASR/NLU/TTS。
+        2. 智慧型AI代理人：不只提供資訊，更能「落實」任務（訂餐、叫車），提供個人化推薦與主動關懷。
+        3. 互聯互通的生態系：透過API整合長照2.0、交通、餐飲、醫療等公私部門服務。
+        主要差異化優勢：以「台語優先」的語音互動為入口，整合「碎片化服務」並提供「主動式任務執行」，而不僅是被動的資訊提供者。
+        初期目標用戶：部分失能但仍具生活自理能力的長者，特別是以台語為主要溝通語言的族群。
+    `;
+    presetQBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (btn.innerText.includes('差異化')) {
+                qaInput.value = "相較於市場上其他健康App，這個App的主要差異化優勢是什麼？";
+            } else if (btn.innerText.includes('目標用戶')) {
+                qaInput.value = "這個App初期的主要目標用戶是誰？";
+            }
+        });
+    });
+    qaBtn.addEventListener('click', async () => {
+        const userQuestion = qaInput.value.trim();
+        if (!userQuestion) {
+            qaOutputDiv.innerHTML = '<p class="text-red-500">請輸入您的問題。</p>';
+            return;
+        }
+        
+        const prompt = `你是一位頂尖的商業策略分析師。請根據以下的專案摘要，專業且精要地回答使用者的提問。請以繁體中文回答。
+
+        --- 專案摘要 ---
+        ${qaContext}
+        ---
+        
+        使用者的提問：「${userQuestion}」`;
+        qaBtnText.textContent = 'AI 分析中...';
+        qaLoader.classList.remove('hidden');
+        qaBtn.disabled = true;
+        qaOutputDiv.innerHTML = '<p class="text-slate-400">正在諮詢 AI 策略分析師，請稍候...</p>';
+        try {
+            const text = await callGemini(prompt);
+            qaOutputDiv.innerText = text;
+        } catch (error) {
+            console.error("Gemini API Error:", error);
+            qaOutputDiv.innerHTML = '<p class="text-red-500">抱歉，AI 策略分析師暫時無法連線，請稍後再試。</p>';
+        } finally {
+            qaBtnText.textContent = '送出問題';
+            qaLoader.classList.add('hidden');
+            qaBtn.disabled = false;
+        }
+    });
+    async function callGemini(prompt) {
+        let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+        const payload = { contents: chatHistory };
+        const apiKey = "";
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        
+        if (!response.ok) { throw new Error(`API request failed with status ${response.status}`); }
+        const result = await response.json();
+        
+        if (result.candidates && result.candidates.length > 0 && result.candidates[0].content && result.candidates[0].content.parts[0].text) {
+            return result.candidates[0].content.parts[0].text;
+        } else {
+            throw new Error('Invalid API response format');
+        }
+    }
+});
+</script>
 
 </body>
-</html>
+</ht
