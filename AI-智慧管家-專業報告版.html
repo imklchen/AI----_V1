@@ -214,8 +214,8 @@
                         <span id="gemini-scenario-btn-text">產生模擬對話</span>
                         <div id="gemini-scenario-loader" class="gemini-spinner hidden"></div>
                      </button>
-                     <div class="mt-6 p-4 bg-slate-100 rounded-lg min-h-[300px] whitespace-pre-wrap text-slate-700 font-mono text-sm leading-relaxed">
-                        <p id="gemini-scenario-output" class="text-slate-500">模擬的對話內容將會顯示在這裡...</p>
+                     <div class="mt-6 p-4 bg-slate-100 rounded-lg min-h-[300px] whitespace-pre-wrap text-slate-700 font-mono text-sm leading-relaxed flex items-center justify-center">
+                        <p id="gemini-scenario-output" class="text-slate-500 text-center">模擬的對話內容將會顯示在這裡...</p>
                      </div>
                 </div>
             </div>
@@ -234,8 +234,8 @@
                         <span id="gemini-qa-btn-text">送出問題</span>
                         <div id="gemini-qa-loader" class="gemini-spinner hidden"></div>
                      </button>
-                     <div class="mt-6 p-4 bg-slate-100 rounded-lg min-h-[300px] whitespace-pre-wrap text-slate-700 text-sm leading-relaxed">
-                        <p id="gemini-qa-output" class="text-slate-500">AI 分析師的回答將會顯示在這裡...</p>
+                     <div class="mt-6 p-4 bg-slate-100 rounded-lg min-h-[300px] whitespace-pre-wrap text-slate-700 text-sm leading-relaxed flex items-center justify-center">
+                        <p id="gemini-qa-output" class="text-slate-500 text-center">AI 分析師的回答將會顯示在這裡...</p>
                      </div>
                 </div>
             </div>
@@ -362,9 +362,19 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             const text = await callGemini(prompt);
             scenarioOutputDiv.innerText = text;
+            scenarioOutputDiv.classList.remove('items-center', 'justify-center', 'text-center');
+            scenarioOutputDiv.style.textAlign = 'left';
+
         } catch (error) {
             console.error("Gemini API Error:", error);
-            scenarioOutputDiv.innerHTML = '<p class="text-red-500">抱歉，AI 服務模擬器暫時無法連線，請稍後再試。此功能旨在展示本 App 的核心 AI 對話技術。';
+            const errorMessage = `<div class="text-center p-4">
+                                    <h4 class="font-bold text-slate-700">AI 互動展示</h4>
+                                    <p class="mt-2 text-sm text-slate-500">此功能旨在展示 App 的核心 AI 對話能力。為確保安全，互動功能僅在我們的特定展示環境中啟用。</p>
+                                    <p class="mt-2 text-sm text-slate-500">如需體驗完整功能，請聯繫專案負責人。</p>
+                                 </div>`;
+            scenarioOutputDiv.innerHTML = errorMessage;
+            scenarioOutputDiv.classList.add('items-center', 'justify-center', 'text-center');
+
         } finally {
             scenarioBtnText.textContent = '產生模擬對話';
             scenarioLoader.classList.add('hidden');
@@ -419,9 +429,18 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             const text = await callGemini(prompt);
             qaOutputDiv.innerText = text;
+            qaOutputDiv.classList.remove('items-center', 'justify-center', 'text-center');
+            qaOutputDiv.style.textAlign = 'left';
         } catch (error) {
             console.error("Gemini API Error:", error);
-            qaOutputDiv.innerHTML = '<p class="text-red-500">抱歉，AI 策略分析師暫時無法連線，請稍後再試。</p>';
+             const errorMessage = `<div class="text-center p-4">
+                                    <h4 class="font-bold text-slate-700">AI 策略問答</h4>
+                                    <p class="mt-2 text-sm text-slate-500">此功能旨在展示 AI 的深度分析能力。為確保安全，互動功能僅在我們的特定展示環境中啟用。</p>
+                                    <p class="mt-2 text-sm text-slate-500">如需體驗完整功能，請聯繫專案負責人。</p>
+                                 </div>`;
+            qaOutputDiv.innerHTML = errorMessage;
+            qaOutputDiv.classList.add('items-center', 'justify-center', 'text-center');
+
         } finally {
             qaBtnText.textContent = '送出問題';
             qaLoader.classList.add('hidden');
@@ -452,4 +471,4 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 </body>
-</ht
+</html>
